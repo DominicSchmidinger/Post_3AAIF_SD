@@ -1,3 +1,4 @@
-function q (b) {
-  return b * b;
+# andere Variante verworfen
+function q (a) {
+  return a^2;
 }

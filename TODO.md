@@ -1,4 +1,1 @@
 # kommender Stoff
-
-- Parameterprüfung
-- (throw)

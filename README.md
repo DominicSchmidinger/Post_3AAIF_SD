@@ -1,5 +1,12 @@
 # sj25-26-34aaif-pos
 
+## 2025-09-15
+
+- Parameterprüfung
+- (throw)
+- if / else nochmal gründlich
+- .gitignore!!
+
 ## 2025-09-11
 
 - (default) Konstruktor

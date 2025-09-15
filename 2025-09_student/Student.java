@@ -6,6 +6,7 @@ public class Student
     private char gender;
 
     // Constructor
+    // name: mind. 3 char, max 50
     public Student (String name, float kg, int cm) {
         this.setName(name);
         this.setKg(kg);
@@ -13,6 +14,10 @@ public class Student
     }
     // setter für name
     public void setName (String name) {
+        // TODO separate Meldungen zu kurz bzw. zu lang
+        if (name.length() < 3 || name.length() > 50) {
+            throw new IllegalArgumentException("Name muss 3-50 Buchstaben haben");
+        }
         this.name = name;
     }
 

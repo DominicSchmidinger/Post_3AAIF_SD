@@ -2,6 +2,8 @@
 
 ## 2025-09-15
 
+HÜ Parameterprüfung *für alle* Parameter! (name / kg / cm / gender)
+
 - Parameterprüfung
 - (throw)
 - if / else nochmal gründlich

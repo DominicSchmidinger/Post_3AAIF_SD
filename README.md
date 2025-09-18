@@ -1,5 +1,10 @@
 # sj25-26-34aaif-pos
 
+## PLÜs Dauer jeweils 2UE 
+
+- 2025-11-10
+- 2026-01-12
+
 ## 2025-09-15
 
 HÜ Parameterprüfung *für alle* Parameter! (name / kg / cm / gender)

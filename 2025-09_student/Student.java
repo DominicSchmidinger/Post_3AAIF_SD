@@ -13,6 +13,14 @@ public class Student
         this.setCm(cm);
         this.setGender(gender);
     }
+    // 
+    public Student (String name, float kg, int cm) {
+        this.setName(name);
+        this.setKg(kg);
+        this.setCm(cm);
+        this.setGender('m');
+    }
+    
     // setter für name
     public void setName (String name) {
         // TODO separate Meldungen zu kurz bzw. zu lang

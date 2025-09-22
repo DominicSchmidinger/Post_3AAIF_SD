@@ -8,6 +8,12 @@
 ## 2025-09-22
 
 - Signaturen
+- Junit Tests
+
+HÜ:
+
+- weitere bmi_wertungen implemetieren
+- Tests für getBMI () schreiben
 
 ## 2025-09-15
 

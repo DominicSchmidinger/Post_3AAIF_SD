@@ -14,13 +14,17 @@ public class Student
         this.setGender(gender);
     }
     // 
-    public Student (String name, float kg, int cm) {
+    public Student (String name, boolean isMann, int cm, int kg) {
         this.setName(name);
         this.setKg(kg);
         this.setCm(cm);
-        this.setGender('m');
+        if (isMann) {
+            this.setGender('m');
+        } else {
+            this.setGender('f');
+        }
     }
-    
+
     // setter für name
     public void setName (String name) {
         // TODO separate Meldungen zu kurz bzw. zu lang
@@ -69,10 +73,37 @@ public class Student
     public String mannOderFrau () {
         if (this.gender == 'm') return "männlich";
         // this.
-        return "weblich";
+        return "weiblich";
     }
 
     public String toString () {
         return "Name: " + this.name + " (" + this.mannOderFrau() + ")";
+    }
+
+    public String bmi_werter(){
+        int normal_max_m = 25;
+        int normal_min_m = 20;
+        int normal_max_f = 24;
+        int normal_min_f = 19;
+        float bmi = this.bmi();
+        if (gender == 'm'){
+            if (bmi < normal_min_m){
+                return "Untergewicht";
+            }
+            else if (bmi > normal_max_m){
+                return "Übergewicht";
+            }
+            else return "Normal";
+        }
+        else if (gender == 'f'){
+            if (bmi < normal_min_f){
+                return "Untergewicht";
+            }
+            else if (bmi > normal_max_f){
+                return "Übergewicht";
+            }
+            else return "Normal";
+        }
+        else return "Error";
     }
 }

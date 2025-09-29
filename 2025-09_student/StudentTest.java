@@ -28,21 +28,8 @@ public class StudentTest
     @BeforeEach
     public void setUp()
     {
-        System.out.println("executing setUp()");
     }
 
-    @Test
-    public void testBMI () {
-        //throw new IllegalArgumentException("es ist mir nix besseres eingefallen");
-        //assert(false);
-        // kein Code bedeutet Test wird gut gehen ... TODO
-    }
-    
-    @Test
-    public void testWertung() {
-        Student ferdi = new Student("Ferdinand", true, 181, 100);
-        assertEquals("Übergewichtig", ferdi.bmi_werter(), "BMI Wertung");
-    }
     /**
      * Tears down the test fixture.
      *
@@ -51,6 +38,18 @@ public class StudentTest
     @AfterEach
     public void tearDown()
     {
-        System.out.println("executing tearDown()");
     }
+    @Test
+    public void testMinGewicht(){
+        Student s=new Student("Dominic",75.0f,189,'m');
+        System.out.println(s.mannOderFrau());
+        System.out.println(s.gewichtsklasse());
+        assertEquals("Normalgewicht", s.gewichtsklasse());
+        //assertEquals(75.0f, s.getKg());
+        //s.setKg(2.0f);
+        //assertEquals(2.0f, s.getKg(), 0.1);
+        //assertEquals(2.0f, s.getKg());
+    }
+        
+    
 }

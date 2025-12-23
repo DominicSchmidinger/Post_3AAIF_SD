@@ -1,51 +1,52 @@
 package at.spengergasse;
 
+import java.util.Locale;
+import java.util.Objects;
+
 public class Etappe {
     private int nummer;
-    private float leange;
-    private String zielort;
+    private float laenge;
+    private String zielOrt;
     private String sieger;
     private int stunden;
     private int minuten;
 
-    public Etappe(String zielort, float leange) {
-        setZielort(zielort);
-        setLeange(leange);
+    public Etappe(float laenge, String zielOrt) {
+        setLaenge(laenge);
+        setZielOrt(zielOrt);
     }
 
     public int getNummer() {
         return nummer;
     }
 
-    public void setNummer(int nummer) {
-        if (nummer <= 0) {
-            throw new IllegalArgumentException("nicht 0 oder kleiner");
+    void setNummer(int nummer) {
+        if (nummer < 1) {
+            throw new IllegalArgumentException("Nummer muss positiv sein");
         }
         this.nummer = nummer;
     }
 
-    public float getLeange() {
-        return leange;
+    public float getLaenge() {
+        return laenge;
     }
 
-    public void setLeange(float leange) {
-
-        if (0 <= 0) {
-            throw new IllegalArgumentException("nicht 0 oder kleiner");
+    public void setLaenge(float laenge) {
+        if (laenge <= 0) {
+            throw new IllegalArgumentException("Laenge muss positiv sein");
         }
-        this.leange = leange;
+        this.laenge = laenge;
     }
 
-    public String getZielort() {
-
-        return zielort;
+    public String getZielOrt() {
+        return zielOrt;
     }
 
-    public void setZielort(String zielort) {
-        if (zielort == null || zielort.isBlank()) {
-            throw new IllegalArgumentException("nicht 0 oder leer");
+    public void setZielOrt(String zielOrt) {
+        this.zielOrt = Objects.requireNonNull(zielOrt, "Ziel-Ort darf nicht null sein").trim();
+        if (this.zielOrt.isEmpty()) {
+            throw new IllegalArgumentException("Ziel-Ort darf nicht leer sein");
         }
-        this.zielort = zielort;
     }
 
     public String getSieger() {
@@ -53,10 +54,10 @@ public class Etappe {
     }
 
     public void setSieger(String sieger) {
-        if (sieger == null || sieger.isBlank()) {
-            throw new IllegalArgumentException("nicht 0 oder leer");
+        this.sieger = Objects.requireNonNull(sieger, "Sieger darf nicht null sein").trim();
+        if (this.sieger.isEmpty()) {
+            throw new IllegalArgumentException("Sieger darf nicht leer sein");
         }
-        this.sieger = sieger;
     }
 
     public int getStunden() {
@@ -64,34 +65,38 @@ public class Etappe {
     }
 
     public void setStunden(int stunden) {
-        if (stunden <= 0) {
-            throw new IllegalArgumentException("nicht 0 oder kleiner");
+        if (stunden < 0) {
+            throw new IllegalArgumentException("Stunden duerfen nicht negativ sein");
         }
         this.stunden = stunden;
     }
 
     public int getMinuten() {
-
         return minuten;
     }
 
     public void setMinuten(int minuten) {
-        if (stunden <= 0) {
-            throw new IllegalArgumentException("nicht 0 oder kleiner");
+        if (minuten < 0 || minuten >= 60) {
+            throw new IllegalArgumentException("Minuten muessen zwischen 0 und 59 liegen");
         }
         this.minuten = minuten;
     }
 
+    public int getGesamtdauerInMinuten() {
+        return stunden * 60 + minuten;
+    }
+
+    private String formatiereDauer() {
+        return String.format(Locale.US, "%d:%02d", stunden, minuten);
+    }
+
     @Override
     public String toString() {
-        return "Etappe{" +
-                "nummer=" + nummer +
-                ", leange=" + leange +
-                ", zielort='" + zielort + '\'' +
-                ", sieger='" + sieger + '\'' +
-                ", stunden=" + stunden +
-                ", minuten=" + minuten +
-                '}';
+        return String.format(Locale.US,
+                "Laenge %.1f km, Ziel-Ort %s, Sieger %s, Dauer %s",
+                laenge,
+                zielOrt,
+                sieger,
+                formatiereDauer());
     }
 }
-
